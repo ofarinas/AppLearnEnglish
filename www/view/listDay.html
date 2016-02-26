@@ -1,0 +1,29 @@
+<ion-header-bar class="bar-positive">
+  <h1 class="title">Demo App learn English</h1>
+</ion-header-bar>
+<ion-content  class="padding-top">
+  <div class="text-center " ng-repeat=" (day ,state) in days">
+    <button style="" ui-sref="{{state}}" class=" button button-block   button-calm">{{day}}</button>
+  </div >
+  <div class="text-center padding-top"><a ng-click="openModal()" class="button ion-plus-round ion-chevron-right button-balanced"> New Word</a></div>
+</ion-content>
+<script id="contact-modal.html" type="text/ng-template">
+  <div class="modal">
+    <ion-header-bar>
+      <h1 class="title">New Word</h1>
+    </ion-header-bar>
+    <ion-content>
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Word in English</span>
+          <input type="text" ng-model="wordEnglish" ng-init="ini() ">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Word in Spanish</span>
+          <input type="text" ng-model="wordSpanih">
+        </label>
+      </div>
+      <button class="button button-full button-balanced" ng-click="closeModal(wordEnglish,wordSpanih)">Save</button>
+    </ion-content>
+  </div>
+</script>
