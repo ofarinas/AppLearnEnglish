@@ -97,6 +97,25 @@ mainAngular
     }
   }
 })
+  .factory("allDay", function ($localstorage) {
+    var list = {}
+    return {
+      getListDay: function () {
+        if($localstorage.getObject("allDay")!=null){
+          list=$localstorage.getObject("allDay");
+        }
+        return list;
+      },
+      addWord: function (word, translator) {
+        list[word] = translator;
+        $localstorage.setObject("allDay",list);
+      },
+      removeWord: function (word) {
+        delete list[word];
+        $localstorage.setObject("allDay",list);
+      }
+    }
+  })
   .factory('$localstorage', ['$window', function($window) {
     return {
       set: function(key, value) {

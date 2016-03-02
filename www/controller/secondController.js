@@ -1,5 +1,5 @@
 mainAngular
-  .controller('secondDayController',["$scope","secondDay","thirdDay","$ionicModal",function($scope,secondDay,thirdDay,$ionicModal){
+  .controller('secondDayController',["$scope","secondDay","thirdDay","firstDay","$ionicModal",function($scope,secondDay,thirdDay,firstDay,$ionicModal){
     $scope.words=secondDay.getListDay();
     $scope.visibilityButton = true;
     $scope.visibilityText = false;
@@ -21,10 +21,10 @@ mainAngular
         $scope.modal.remove();
       },
 
-      $scope.closeModal = function(wordEnglish,wordSpanih) {
-        console.log(wordSpanih);
+      $scope.closeModal = function(wordEnglish,wordSpanish) {
+        secondDay.removeWord(wordEnglish);
+        firstDay.addWord(wordEnglish,wordSpanish);
         $scope.modal.hide();
-
       };
 
     $scope.$on('$destroy', function() {

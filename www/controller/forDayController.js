@@ -1,5 +1,5 @@
 mainAngular
-  .controller('forDayController',["$scope","forDay","fiveDay","$ionicModal",function($scope,forDay,fiveDay,$ionicModal){
+  .controller('forDayController',["$scope","forDay","fiveDay","firstDay","$ionicModal",function($scope,forDay,fiveDay,firstDay,$ionicModal){
     $scope.words=forDay.getListDay();
     $scope.visibilityButton = true;
     $scope.visibilityText = false;
@@ -22,8 +22,9 @@ mainAngular
       },
 
       $scope.closeModal = function(wordEnglish,wordSpanih) {
-        console.log(wordSpanih);
-        $scope.modal.hide();
+        forDay.removeWord(wordEnglish);
+        firstDay.addWord(wordEnglish,wordSpanih);
+        $scope.modal.remove();
 
       };
 

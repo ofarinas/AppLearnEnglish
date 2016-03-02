@@ -22,7 +22,6 @@ mainAngular
     },
 
     $scope.closeModal = function(wordEnglish,wordSpanih) {
-      console.log(wordSpanih);
       $scope.modal.hide();
 
     };

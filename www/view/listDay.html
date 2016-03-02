@@ -1,12 +1,20 @@
 <ion-header-bar class="bar-positive">
-  <h1 class="title">Demo App learn English</h1>
+
+<div class="text-center ">
+<h1 class="title">Demo App learn English</h1>
+</div>
 </ion-header-bar>
-<ion-content  class="padding-top">
+<ion-content>
+
   <div class="text-center " ng-repeat=" (day ,state) in days">
     <button style="" ui-sref="{{state}}" class=" button button-block   button-calm">{{day}}</button>
   </div >
-  <div class="text-center padding-top"><a ng-click="openModal()" class="button ion-plus-round ion-chevron-right button-balanced"> New Word</a></div>
+  <div class="text-center padding-top">
+    <a ng-click="openModal()" class="button ion-plus-round ion-chevron-right button-balanced"> New Word</a>
+    <a ui-sref="all_word" class="button  button-balanced"> Word learnt :)</a>
+  </div>
 </ion-content>
+
 <script id="contact-modal.html" type="text/ng-template">
   <div class="modal">
     <ion-header-bar>

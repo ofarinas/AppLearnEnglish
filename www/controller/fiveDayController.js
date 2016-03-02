@@ -1,5 +1,5 @@
 mainAngular
-  .controller('fiveDayController',["$scope","fiveDay","$ionicModal","$ionicPopup","$location",function($scope,fiveDay,$ionicModal,$ionicPopup,$location){
+  .controller('fiveDayController',["$scope","fiveDay","firstDay","allDay","$ionicModal","$ionicPopup","$location",function($scope,fiveDay,firstDay,allDay,$ionicModal,$ionicPopup,$location){
     $scope.words=fiveDay.getListDay();
 
     $ionicModal.fromTemplateUrl('contact-modal.html', {
@@ -18,8 +18,10 @@ mainAngular
       $scope.visibilityText = true;
 
       $scope.closeModal = function(wordEnglish,wordSpanih) {
-        $scope.modal.hidden();
-        };
+        fiveDay.removeWord(wordEnglish);
+        firstDay.addWord(wordEnglish,wordSpanih);
+        $scope.modal.remove();
+      };
 
     $scope.$on('$destroy', function() {
       $scope.modal.remove();
@@ -30,7 +32,8 @@ mainAngular
       var alertPopup = $ionicPopup.alert({
         title: 'Congratulation',
         template: 'You have lernt one word :)'
-      });
+      }).then(allDay.addWord(word,translate)
+        );
       alertPopup.then(function(res) {
         //$location.path("view/third_day");
       });

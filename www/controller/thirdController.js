@@ -1,5 +1,5 @@
 mainAngular
-  .controller('thirdDayController',["$scope","thirdDay","forDay","$ionicModal","$ionicPopup",function($scope,thirdDay,forDay,$ionicModal,$ionicPopup){
+  .controller('thirdDayController',["$scope","thirdDay","forDay","firstDay","$ionicModal","$ionicPopup",function($scope,thirdDay,forDay,firstDay,$ionicModal,$ionicPopup){
     $scope.words=thirdDay.getListDay();
     $scope.visibilityButton = true;
     $scope.visibilityText = false;
@@ -20,11 +20,16 @@ mainAngular
         forDay.addWord(wordEnglish,wordSpanish);
         $scope.modal.remove();
       },
+      $scope.cameFirstDay=function(wordEnglish,wordSpanish){
+        thirdDay.removeWord(wordEnglish);
+        firstDay.addWord(wordEnglish,wordSpanish);
+
+      },
 
       $scope.closeModal = function(wordEnglish,wordSpanih) {
-        console.log(wordSpanih);
-        $scope.modal.hide();
-
+        thirdDay.removeWord(wordEnglish);
+        firstDay.addWord(wordEnglish,wordSpanih);
+        $scope.modal.remove();
       };
 
     $scope.$on('$destroy', function() {

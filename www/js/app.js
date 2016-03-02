@@ -30,6 +30,7 @@ mainAngular
       .state("third_day",{url:"view/third_day",templateUrl:"view/listWord.html",controller:"thirdDayController"})
       .state("for_day",{url:"view/third_day",templateUrl:"view/listWord.html",controller:"forDayController"})
       .state("five_day",{url:"view/third_day",templateUrl:"view/listWord.html",controller:"fiveDayController"})
+      .state("all_word",{url:"view/all_word",templateUrl:"view/listWordLearnt.html",controller:"allWordController"})
     $urlRouterProvider.otherwise("/")
 
 
